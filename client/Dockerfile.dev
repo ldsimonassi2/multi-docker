@@ -1,0 +1,13 @@
+FROM node:16-alpine 
+
+WORKDIR '/app'
+
+# Solve dependencies
+COPY ./package.json ./
+RUN npm install
+
+# Copy sourcecode
+COPY . .
+
+# Set up default behavior
+CMD ["npm", "run", "start"]
